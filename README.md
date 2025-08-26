@@ -1,8 +1,7 @@
 # Currency Converter
 
-A **simple and professional currency converter** web app built with **React**. Users can convert an amount from one currency to another, view real-time conversion rates, and switch currencies easily.  
+A ** currency converter** web app built with **React**. Users can convert an amount from one currency to another, view real-time conversion rates, and switch currencies easily.  
 
----
 
 ## Features
 
@@ -12,27 +11,18 @@ A **simple and professional currency converter** web app built with **React**. U
 - Shows conversion rates and timestamps.
 - Handles invalid inputs gracefully.
 
----
 
 ## Demo
 
-![Currency Converter Screenshot](screenshot.png)  
-*(Add your app screenshot here)*
+![Currency Converter Screenshot](cc.jpg)  
 
----
+
 
 ## Technologies Used
 
 - **Frontend:** React, CSS
-- **Backend (for rates):** Flask (or any REST API providing currency rates)
-- **Styling:** Custom CSS with professional and neutral color palette
+- **Backend (for rates):** Flask +  API providing currency rates
+- **Styling:** Custom CSS with neutral color palette
 - **State Management:** React Hooks (`useState`, `useEffect`)
 
----
 
-## Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/currency-converter.git
-cd currency-converter
