@@ -1,0 +1,30 @@
+
+
+services:
+  
+  frontend:
+    
+    build: ./frontend
+    container_name: react_app
+    ports: 
+      - "5173:5173"
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      REACT_APP_API_URL: http://flask-backend-unique123.eastus.azurecontainer.io:5000/
+    depends_on: 
+      - web
+
+  web:
+    
+    build: ./backend
+    container_name: flask_app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/usr/src/app
+    
+     
+
+    
