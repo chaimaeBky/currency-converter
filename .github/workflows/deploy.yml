@@ -23,7 +23,7 @@ jobs:
           docker build -t chaimaebky/currencyconverter-web:latest ./backend
           docker push chaimaebky/currencyconverter-web:latest
 
-      - name: build & push frontend image
+      - name: build & push frontend image 
         run: |
           docker build -t chaimaebky/currencyconverter-frontend:latest ./frontend
           docker push chaimaebky/currencyconverter-frontend:latest 
