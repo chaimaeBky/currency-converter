@@ -32,38 +32,38 @@ jobs:
           push: true
           tags: chaimaebky/currencyconverter-frontend:latest
 
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          auth-type: 'azure-cli'
+      # - name: Azure Login
+      #   uses: azure/login@v1
+      #   with:
+      #     auth-type: 'azure-cli'
 
 
 
-      - name: deploy backend to azure container instances 
-        uses: azure/aci-deploy@v1
-        with:
-          resource-group: RGCurrency
-          name: flask-backend
-          image: chaimaebky/currencyconverter-web:latest
-          cpu: 0.5
-          memory: 0.5
-          ports: 5000
-          os-type: Linux
-          registry-username: ${{ secrets.DOCKER_USERNAME }}
-          registry-password: ${{ secrets.DOCKER_PASSWORD }}
+      # - name: deploy backend to azure container instances 
+      #   uses: azure/aci-deploy@v1
+      #   with:
+      #     resource-group: RGCurrency
+      #     name: flask-backend
+      #     image: chaimaebky/currencyconverter-web:latest
+      #     cpu: 0.5
+      #     memory: 0.5
+      #     ports: 5000
+      #     os-type: Linux
+      #     registry-username: ${{ secrets.DOCKER_USERNAME }}
+      #     registry-password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: deploy frontend to azure container instances
-        uses: azure/aci-deploy@v1
-        with:
-          resource-group: RGCurrency
-          name: react-frontend
-          image: chaimaebky/currencyconverter-frontend:latest
-          cpu: 0.5
-          memory: 0.5
-          ports: 80
-          os-type: Linux
-          registry-username: ${{ secrets.DOCKER_USERNAME }}
-          registry-password: ${{ secrets.DOCKER_PASSWORD }}
+      # - name: deploy frontend to azure container instances
+      #   uses: azure/aci-deploy@v1
+      #   with:
+      #     resource-group: RGCurrency
+      #     name: react-frontend
+      #     image: chaimaebky/currencyconverter-frontend:latest
+      #     cpu: 0.5
+      #     memory: 0.5
+      #     ports: 80
+      #     os-type: Linux
+      #     registry-username: ${{ secrets.DOCKER_USERNAME }}
+      #     registry-password: ${{ secrets.DOCKER_PASSWORD }}
               
           
   
