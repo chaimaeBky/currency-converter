@@ -4,6 +4,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+
+# Set the API URL at build time
+ARG VITE_API_URL=http://flask-backend-unique123.eastus.azurecontainer.io:5000
+ENV VITE_API_URL=$VITE_API_URL
+
 RUN npm run build   
 
 # Stage 2: serve with nginx
