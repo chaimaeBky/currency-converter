@@ -3,7 +3,7 @@ FROM node:19-alpine as build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY . .
+COPY . . 
 
 # Set the API URL at build time
 ARG VITE_API_URL=http://flask-backend-unique123.eastus.azurecontainer.io:5000
