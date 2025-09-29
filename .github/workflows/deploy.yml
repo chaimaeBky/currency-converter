@@ -38,8 +38,7 @@ jobs:
           memory: 0.5
           ports: 5000
           os-type: Linux
-          registry-username: ${{ secrets.DOCKER_USERNAME }}
-          registry-password: ${{ secrets.DOCKER_PASSWORD }}
+          
       
       - name: deploy frontend to azure container instances
         uses: azure/aci-deploy@v1
@@ -51,8 +50,6 @@ jobs:
           memory: 0.5
           ports: 80
           os-type: Linux
-          registry-username: ${{ secrets.DOCKER_USERNAME }}
-          registry-password: ${{ secrets.DOCKER_PASSWORD }}
               
           
   
