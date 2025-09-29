@@ -7,12 +7,12 @@ RUN npm install
 
 COPY . .
 
-# Build argument for API URL
 ARG VITE_API_URL
 ENV VITE_API_URL=$VITE_API_URL
 
-# Build React app (this injects the API URL into the static build)
+RUN echo "VITE_API_URL=$VITE_API_URL"
 RUN npm run build
+
 
 # Stage 2: serve with nginx
 FROM nginx:stable-alpine
