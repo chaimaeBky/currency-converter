@@ -25,7 +25,7 @@ jobs:
           push: true
           tags: chaimaebky/currencyconverter-web:latest
 
-      - name: Build & push frontend
+      - name: Build & push frontend 
         uses: docker/build-push-action@v4
         with:
           context: ./frontend
