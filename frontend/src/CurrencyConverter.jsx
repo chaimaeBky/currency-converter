@@ -8,16 +8,24 @@ const CurrencyConverter = () => {
   const [toCurrency, setToCurrency] = useState('EUR');
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Use environment variable or fallback to localhost for development
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/rates")
-      .then(res => res.json())
+    fetch(`${API_URL}/rates`)
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch rates');
+        return res.json();
+      })
       .then(data => {
         setRates(data.conversion_rates);
         setLoading(false);
       })
       .catch(err => {
         console.error("Error fetching rates:", err);
+        setError(err.message);
         setLoading(false);
       });
   }, []);
@@ -29,7 +37,9 @@ const CurrencyConverter = () => {
   };
 
   useEffect(() => {
-    if (Object.keys(rates).length > 0) Convert();
+    if (Object.keys(rates).length > 0 && amount > 0) {
+      Convert();
+    }
   }, [amount, fromCurrency, toCurrency, rates]);
 
   const handleSwitch = () => {
@@ -37,7 +47,39 @@ const CurrencyConverter = () => {
     setToCurrency(fromCurrency);
   };
 
-  if (loading) return <div style={{ textAlign: 'center', padding: '50px' }}>Loading exchange rates...</div>;
+  const handleAmountChange = (e) => {
+    const value = e.target.value;
+    
+    // Allow empty string while typing
+    if (value === '') {
+      setAmount('');
+      return;
+    }
+    
+    // Parse the value and ensure it's a valid number
+    const parsedValue = parseFloat(value);
+    if (!isNaN(parsedValue) && parsedValue >= 0) {
+      setAmount(parsedValue);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div style={{ textAlign: 'center', padding: '50px' }}>
+        Loading exchange rates...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div style={{ textAlign: 'center', padding: '50px', color: 'red' }}>
+        Error: {error}
+        <br />
+        <small>API URL: {API_URL}</small>
+      </div>
+    );
+  }
 
   return (
     <div className="converter-container">
@@ -46,9 +88,11 @@ const CurrencyConverter = () => {
       <input
         type="number"
         value={amount}
-        onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+        onChange={handleAmountChange}
         placeholder="Enter amount"
         className="converter-input"
+        min="0"
+        step="any"
       />
 
       <div className="currency-row">
@@ -75,7 +119,7 @@ const CurrencyConverter = () => {
         </select>
       </div>
 
-      {convertedAmount !== null && (
+      {convertedAmount !== null && amount > 0 && (
         <div className="converted-result">
           <p>{amount} {fromCurrency} = {convertedAmount.toFixed(4)} {toCurrency}</p>
           <p className="converted-rate">
