@@ -18,15 +18,19 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: build & push backend image
-        run: |
-          docker build -t chaimaebky/currencyconverter-web:latest ./backend
-          docker push chaimaebky/currencyconverter-web:latest
+      - name: Build & push backend
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          push: true
+          tags: chaimaebky/currencyconverter-web:latest
 
-      - name: build & push frontend image 
-        run: |
-          docker build -t chaimaebky/currencyconverter-frontend:latest ./frontend
-          docker push chaimaebky/currencyconverter-frontend:latest 
+      - name: Build & push frontend
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          push: true
+          tags: chaimaebky/currencyconverter-frontend:latest
 
       - name: deploy backend to azure container instances 
         uses: azure/aci-deploy@v1
@@ -38,7 +42,8 @@ jobs:
           memory: 0.5
           ports: 5000
           os-type: Linux
-          
+          registry-username: ${{ secrets.DOCKER_USERNAME }}
+          registry-password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: deploy frontend to azure container instances
         uses: azure/aci-deploy@v1
@@ -50,6 +55,8 @@ jobs:
           memory: 0.5
           ports: 80
           os-type: Linux
+          registry-username: ${{ secrets.DOCKER_USERNAME }}
+          registry-password: ${{ secrets.DOCKER_PASSWORD }}
               
           
   
