@@ -11,7 +11,7 @@ A full-stack **currency converter** built with **React (frontend)** and **Flask 
 
 ##  Features
 
-*  Real-time exchange rates
+*  Real-time Currency Conversion – Uses a live exchange rates API to fetch the latest conversion rates instantly.
 *  Convert instantly between currencies
 *  One-click switch between “from” and “to”
 *  Displays live conversion rates
@@ -25,6 +25,7 @@ A full-stack **currency converter** built with **React (frontend)** and **Flask 
 * **Frontend:** React (Vite), TailwindCSS, Nginx
 * **Backend:** Flask (Python), Gunicorn
 * **Deployment:** Docker, GitHub Actions, Azure Container Instances
+* **API:** Real-time Currency Exchange API for live conversion rates
 
 ---
 
