@@ -33,8 +33,7 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: chaimaebky/currencyconverter-frontend:latest
-          build-args: |
-            VITE_API_URL=http://flask-backend-unique123.eastus.azurecontainer.io:5000
+          build-args: VITE_API_URL=http://flask-backend-unique123.eastus.azurecontainer.io:5000
 
 
 
