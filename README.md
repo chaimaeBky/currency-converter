@@ -4,7 +4,8 @@
 
 A full-stack **currency converter** built with **React (frontend)** and **Flask (backend)**, fully containerized with **Docker** and deployed on **Azure Cloud**.
 
-This project showcases my skills in **frontend, backend, cloud deployment, and DevOps pipelines**.
+
+ This project highlights my skills in **frontend, backend, cloud deployment, and DevOps pipelines** and my ability to **design, develop, and deploy** a complete web application using modern tools.
 
 ---
 
@@ -38,7 +39,7 @@ currency-converter/
 
 ---
 
-## 🐳 Docker
+##  Docker
 
 ```bash
 # Backend
@@ -77,5 +78,4 @@ docker run -p 80:80 currencyconverter-frontend
 
 ---
 
- This project highlights my ability to **design, develop, and deploy** a complete web application using modern tools.
 
