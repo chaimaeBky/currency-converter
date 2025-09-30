@@ -15,8 +15,8 @@ A full-stack **currency converter** built with **React (frontend)** and **Flask 
 *  Convert instantly between currencies
 *  One-click switch between “from” and “to”
 *  Displays live conversion rates
-*  Dockerized frontend & backend
-*  Deployed to Azure using GitHub Actions
+*  Dockerized frontend & backend using GitHub Actions
+*  Deployed to Azure 
 
 ---
 
