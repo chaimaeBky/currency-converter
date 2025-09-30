@@ -1,27 +1,81 @@
-# Currency Converter
-
-A **currency converter** web app built with **React**. Users can convert an amount from one currency to another, view real-time conversion rates, and switch currencies easily.  
 
 
-## Features
+# 💱 Currency Converter Web App
 
-- Convert between multiple currencies using real-time rates from a backend API.
-- Switch between the "from" and "to" currencies with a single button.
-- Clean, professional, and responsive UI.
-- Shows conversion rates and timestamps.
-- Handles invalid inputs gracefully.
+A full-stack **currency converter** built with **React (frontend)** and **Flask (backend)**, fully containerized with **Docker** and deployed on **Azure Cloud**.
+
+This project showcases my skills in **frontend, backend, cloud deployment, and DevOps pipelines**.
+
+---
+
+##  Features
+
+*  Real-time exchange rates
+*  Convert instantly between currencies
+*  One-click switch between “from” and “to”
+*  Displays live conversion rates
+*  Dockerized frontend & backend
+*  Deployed to Azure using GitHub Actions
+
+---
+
+##  Tech Stack
+
+* **Frontend:** React (Vite), TailwindCSS, Nginx
+* **Backend:** Flask (Python), Gunicorn
+* **Deployment:** Docker, GitHub Actions, Azure Container Instances
+
+---
+
+##  Structure
+
+```
+currency-converter/
+├── backend/   # Flask API
+├── frontend/  # React UI
+└── .github/   # CI/CD pipeline
+```
+
+---
+
+## 🐳 Docker
+
+```bash
+# Backend
+docker build -t currencyconverter-web ./backend
+docker run -p 5000:5000 currencyconverter-web
+
+# Frontend
+docker build -t currencyconverter-frontend ./frontend
+docker run -p 80:80 currencyconverter-frontend
+```
+
+---
+
+##  Deployment
+
+* Images built & pushed to DockerHub via **GitHub Actions**
+* Deployed to **Azure Container Instances**
+
+---
+
+##  Demo
+
+![App Screenshot](./currencyconverter1.jpg)
+![App Screenshot](./currencyconverter2.jpg)
 
 
-## Demo
 
-![Currency Converter Screenshot](cc.jpg)  
+---
 
+##  About Me
 
+**Chaimae El Bakay**
+ Computer Science Engineering Student
+ Passionate about Full-Stack Development & AI
+ Building projects that connect **software + cloud + AI**
 
-## Technologies Used
+---
 
-- **Frontend:** React, CSS
-- **Backend (for rates):** Flask +  API providing currency rates
-- **Styling:** Custom CSS with neutral color palette
-
+ This project highlights my ability to **design, develop, and deploy** a complete web application using modern tools.
 
