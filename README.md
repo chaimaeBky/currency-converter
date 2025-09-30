@@ -64,6 +64,8 @@ docker run -p 80:80 currencyconverter-frontend
 
 ![App Screenshot](./currencyconverter1.jpg)
 ![App Screenshot](./currencyconverter2.jpg)
+![App Screenshot](./currencyconverter3.jpg)
+
 
 
 
