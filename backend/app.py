@@ -3,11 +3,12 @@ from flask import Flask, jsonify
 import requests
 from flask_cors import CORS  
 
+app = Flask(__name__) 
 CORS(app, resources={
     r"/*": {
         "origins": [
-            "https://react-frontend-unique123.eastus.azurecontainer.io",  
-            "http://react-frontend-unique123.eastus.azurecontainer.io",   
+            "https://react-frontend-unique123.eastus.azurecontainer.io",  # Changed to HTTPS
+            "http://react-frontend-unique123.eastus.azurecontainer.io",   # Keep HTTP as backup
             "http://localhost:5173",
             "http://localhost:3000"
         ],
