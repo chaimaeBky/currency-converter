@@ -79,6 +79,6 @@ docker run -p 80:80 currencyconverter-frontend
  Passionate about Full-Stack Development & AI
  Building projects that connect **software + cloud + AI**
 
----
+--- 
 
 
